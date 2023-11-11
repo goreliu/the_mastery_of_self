@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第 8 章 目标设定 - 觉察真我</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="prefix_1.html">重要名词解释</a></li><li class="chapter-item expanded affix "><a href="prefix_2.html">前言 每个人都迷失在自己的派对梦境中</a></li><li class="chapter-item expanded affix "><a href="chapter_01.html">第 1 章 大师的诞生</a></li><li class="chapter-item expanded affix "><a href="chapter_02.html">第 2 章 了解我们的驯化和依附</a></li><li class="chapter-item expanded affix "><a href="chapter_03.html">第 3 章 无条件地爱自己</a></li><li class="chapter-item expanded affix "><a href="chapter_04.html">第 4 章 无条件地爱他人</a></li><li class="chapter-item expanded affix "><a href="chapter_05.html">第 5 章 揪出诱因并好好处理陷阱</a></li><li class="chapter-item expanded affix "><a href="chapter_06.html">第 6 章 打破自动的循环</a></li><li class="chapter-item expanded affix "><a href="chapter_07.html">第 7 章 多重面具</a></li><li class="chapter-item expanded affix "><a href="chapter_08.html" class="active">第 8 章 目标设定</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">觉察真我</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第-8-章-目标设定"><a class="header" href="#第-8-章-目标设定">第 8 章 目标设定</a></h1>
+<p>设定、努力迈进，然后达成你的目标，是投身地球梦境的另一种美好方式。能让你学习和体验新的事物、超越寻常范围的局限，还能赋予你成就的正向感受。因为你透过实现你的意志，彰显你创造的意图。</p>
+<p>在此同时，设定与达成目标也可能成为一个陷阱，让你再次陷入迷雾。因为现今的地球梦境里有许多人相信，达成目标的最佳方法是鞭斥、责骂，或用其他形式的自贬，逼迫自己到达想要的境界。</p>
+<p>因此许多人觉得在某方面要成功的最佳方法，是在心中雇用一个象征性的教育班长，利用负面的自我对话逼迫你「充分发挥你的能力」。从这个角度来看，或许能完全理解许多人为何都曾被这样的想法驯化：自我鞭策是唯一，甚至是最值得向往的方法，能激励我们到达我们想要的境界。这种动机让我们太过执着最后的结果，以致于再也无法感觉自我拒绝的刺激所造成的痛苦。</p>
+<p>这种方法常被用在身体意象。举例来说，如果你看着镜中的自己，决定你不喜欢自己看起来的样子（或许你觉得自己太胖、身材不好等），寄生虫就抓住机会大声对你说话，批判你现有的美丽身体其实不够好。因此你设定目标，想减轻几公斤或改变某方面的外表。由于你是按照寄生虫的判断才这么做，所以约定中隐含一个条件，即唯有当你达成目标，你才会爱和接纳自己。这个过程快到，你根本没有觉察自己己毫无意识地落入陷阱，当然不只是身体意象会用有条件的爱设定目标。</p>
+<p>只要你依附努力的结果，立刻就受制于有条件的爱。</p>
+<p>这类做法可能产生的问题有许多。首先，每当你把负面的自我对话当作达成目标的手段，你就暗示自己目前的状况还不够好。这会吸引寄生虫对你说话并且占据你的心灵，还会让它大刺刺地主张只是试着要「保护」你。这又是另一个寄生虫能如何悄悄现身的例子，它把负面的嘲弄掺入有条件的奖励。但诚如我们在前几章所见，寄生虫的方法永远都只会带来相反的后果。</p>
+<p>第二，若是透过负面的自我对话逼迫自己达成目标，只要目标没有达成，你就不太可能接纳和爱自己，未来只会陷入更多的内在斥责。这就是为什么没有达成目标，可能让你觉得比开始前更糟。每当你利用寄生虫的声音激励自己，任何的失败，都只是让寄生虫有更多的借口骂你。如果这种情况经常发生，你就越来越不可能设定目标，最后甚至完全不再设定目标，因为你潜意识真的害怕，如果没达成目标你的寄生虫会对你说些什么。</p>
+<p>如果你因为害怕失败而不再设定目标，那就是寄生虫在过去曾严厉地斥责你，导致你不想再一次经历这样的感受。你宁可不要尝试，也不要再次面对失败的恐惧，听到寄生虫对你的批判。</p>
+<p>此外，每当你因为没有达到特定目标而批判自己，你也让自己愿意接受他人的批判，因为你已经暗自同意这样的批判。这也是多数人跟自己和他人互动的方式，互相强加目标和期待在对方身上，如果目标没有达成，就乖乖接受批判。这就是有条件爱的错觉如何在地球梦境里扩散蔓延。你借此重新加入派对的闹剧，再次回到驯化和自我驯化的循环。</p>
+<p>不可否认，像这样设定目标是很有效的陷阱，因为有时似乎很行得通。内心批判的声音可能是相当有力的推手，它利用罪恶、羞愧、嫉妒和其他许多负面情绪当作工具，逼迫你采取行动。然而即使这种负面的自我对话确实行得通，成功也不会持久。因为只要是倚靠寄生虫的推动所获得的成功，无论你完成什么，寄生虫都不会满意太久，还会一直提高标准。所以这样得来的自我接纳，顶多也只是暂时。</p>
+<p>这就是为什么托尔特克传统认为，如果你等待自己在未来被爱和接纳，现在的你就不会爱和接纳自己。</p>
+<p>如果试图把自爱和自我接纳连上目标，你的幸福快乐就跟目标达成与否有关。当你达成目标时，你的自尊会暂时提升；当你没有达成目标，你就会看轻自己。这是利用目标设定做为自我驯化的工具，因为你根据达成目标的成功失败，选择有条件地爱你自己。现在你「应该如何」的期待控制了你。过程像是这样：</p>
+<ol>
+<li>你决定你这个人还不足够，因此你设定目标想达成些什么。</li>
+<li>你暗自跟自己约定，唯有达成目标你才值得自己的爱。</li>
+<li>如果你没有达到目标，你据此批判自己。如果你确实达到目标，你的内在批判会提高标准。</li>
+</ol>
+<p>自我主宰的大师懂得避开这样的陷阱，做法是无条件地爱自己，了解自己在此时此刻已经完美，不需要达成什么目标才值得自己的爱。</p>
+<h3 id="找出起源并看清它的表征"><a class="header" href="#找出起源并看清它的表征">找出起源并看清它的表征</a></h3>
+<p>在你孩提时的某个时间，你设定目标，想在某方面表现更好，或许是学校的某一门课，或是操场上的一场比赛或一项乐器，或其他任何活动，你很快意识到，训练或练习确实能让你做得更好，因为你的心意只关注这个可能。这是个美好的过程，让你在地球梦境中因为创造些什么而感到满足。</p>
+<p>但在过程中也可能有某个时刻，你收到这样的想法，利用自我鞭策和自我贬低做为达成目标的手段。你得到的想法是你需要恫吓自己来达成目标，如果你这么做，你的结果会更好。你能否回想起发生的时间？多数人发生时的年纪都很小，小到不可能明确地指出来，但事后来看，那个时刻应该是光为行动本身（因为自己喜欢）而做这件事已经不再足够时。</p>
+<p>你的自我价值和自我接纳逐渐跟结果或成就相连。后果里夹杂着恐惧，也就是害怕如果没有达成目标，后果是你不值得自己的自爱或他人的爱。恐惧入侵的时刻，也是达成目标变成驯化工具的时刻，不久之后，你就接受那
+样的恐惧和自我驯化。让我们来看一个许多人都曾经历的简单例子。</p>
+<p>当你第一次学会骑脚踏车时，你骑车很可能是因为好玩、带给你有成就感，而且让你能做其他小孩也都在做的事。之后你继续进行其他的事，大概不会花太多心思在骑脚踏车上。但为了进一步探讨，我们先想象你开始依附这样的想法：「我必须是最棒的脚踏车手」、「如果我是最棒的脚踏车手，我才值得自己的接纳和自爱」，除非你刚好是专业的脚踏车手，否则这个想法很可能非常愚蠢，不是吗？你从中可以看到，你的自爱和自我接纳取决于骑脚踏车的能力有多荒谬，然而许多人在提到达成其他方面，例如：工作、嗜好、身体意象、家庭中的角色，甚至灵性道路上的进展的目标时，其实就是在做相同的事。有些在一开始是有趣和兴奋来源的事物，经过这样就变成自我驯化的工具。</p>
+<p>目标设定造成的自我驯化可能难以察觉，因此揪出它的所有形式能让你成为大师。或许你只想到日常工作中可以定义的目标设定，但这方面的思考内容远不仅止于此。例如：为了快乐人生或感到圆满，你认为需要达成什么目标？你是否需要觉得被特定的人爱？你是否需要赚取一定数量的金钱？你是否需要在自己的社群中得到一定程度的赞赏、认可或社会地位？你是否认为自己需要获得相当伟大的灵性体悟？你是否需要自己的身体看起来像什么样子？所有的测量标准都很主观，只有你下定义，它们才有意义。然而它们的共同点——如果你把你的幸福快乐有条件地建立在达成任何目标，你也同时让这些目标变成自我驯化的工具。</p>
+<p>自我主宰的大师摆脱的方法，乃提醒自己在此时此刻已经完美，不需要为了完整而做到或达成任何目标。希望完成地球梦境中的某些事物、了解什么是你的优点和知道你能做些什么，当然没有问题。但在努力迈向你为自己设定的任何目标的整个过程中，自我主宰的大师最优先考虑是无条件地爱自己。</p>
+<h3 id="带着无条件的自爱设定目标"><a class="header" href="#带着无条件的自爱设定目标">带着无条件的自爱设定目标</a></h3>
+<p>这可能是最难改变的习惯，因为多数人已不知不觉地严重被这个想法驯化：负面的自我对话是达成目标的必要条件，所以从来没考虑用其他方法——出自无条件的自爱──设定目标。然而做到这点能彻底改变你的个人梦境，以及你如何跟地球梦境中的他人互动。</p>
+<p>当你考虑完成某些事物或想达成某些目标时，第一步是提醒自己，这是你自己想做的事。你知道，事实上没有地方一定得去、也没有事情一定得做到或达成，因为向外寻求完美，实际上只会远离完美。此外，你要记得周遭的世界是个梦境，你在这个梦里既是创造者，也被创造。</p>
+<p>若出于觉察和无条件的爱，你会认知到，在你的个人梦境里有想要创造、改变或达成的什么。你是为了表演本身而在梦里演出。</p>
+<p>并不是努力地修复自己，或是有条件地爱自己。在这样的背景下设定目标，是个自然和美好的过程，而你用来达成目标的方法，源自于你对自己完美的认识。现在你开始出于无条件的爱设定目标，过程不再出自恐惧、羞愧或怀疑。你想做的任何改变或想达成的任何目标，都是因为你真正想做而进行，不是因为感到不足或不适任而做。你的改变，不是因为过去的驯化或当前的依附，而是做你喜欢做的事，在梦中提升和进化自己。</p>
+<p>这样设定目标的惊人好处，当你整个过程都带着无条件的自爱时，你会发现在你迈向目标达成的同时，你的心中也自然生出自信。这种感受跟出于恐惧的逼迫大不相同，出于恐惧的你，是因为害怕失败才奋力变好。但出于欠缺或恐惧而奋力达成，只会制造负面性满满的个人梦境。</p>
+<p>当你的自信是出自于自爱时，你能在充分了解自己的情况下发挥实力，无论结果如何都能享受此刻。</p>
+<p>因为你的自爱不是根据任何特定的结果，所以你对生命的爱，实际上才是你全力以赴的动机来源。因此现在的你，一路上都能掌控自己做的每个选择。若有必要改变，你也乐意接受改变目标，因为你不会批判自己，所以当别人批判你的进展或你的能力时，你知道这是在反应他们的梦而不是你的。</p>
+<p>先说清楚，这不表示你想达成的所有目标都能轻易得手，实际上还是需要付出相当大的努力！但出于无条件的自爱（而非恐惧和自我鞭策）设定目标，最大的差别是你更有可能创造真实且持续的改变，同时在努力达成目标的过程中好好享受。为了进一步解释，我想跟你分享一个我生活中的例子。</p>
+<p>几年前，我看着镜中的自己说：「米盖尔，你很完美。我爱你原原本本的模样，但是我希望你更健康和享受人生，所以你要重新开始跑步。」</p>
+<p>过去几年我经常跑步，但有一段时间没跑了。我向来很喜欢跑步，也不觉得跑步很难，所以我假设自己能轻易地再次发挥过去的潜能。因此我拍拍旧球鞋上的灰尘，出门去跑跑步。我的目标是跑八公里，但在我不得不停下来时，我只跑了 0.7 公里左右。我能感觉我的心脏猛然跳动，对于自己沉重的呼吸也相当讶异。</p>
+<p>若你仔细地阅读本书，你在前一段应该有看到一个词，精确点出我开始走上冒险之路的时刻，我做了个「假设」，认为自己在休息这么久之后，还能轻易地跑完八公里。但显然，我不可能这么简单就穿上旧球鞋、达成这个目标。在做这个假设的同时，我对自己产生一个期待，我设定一个无法达成的目标。当我跑不到一，六公里就停下来时，心中立刻充满了自我批判，这时寄生虫的声音在大声呐喊：「米盖尔，你真是个懒惰鬼啊！」听到这个声音后，我的觉察立刻回神过来，意识到自我驯化的老方法正试图夺回它们的根据地。</p>
+<p>那个时刻我有个选择，我可以斥责和批判自己；或者我可以记住这只是选我的起始点，身为自我主宰的大师，我会在整个过程都无条件地爱我自己。「米盖尔，对自己仁慈点。这就是今天的你，这是此时此刻的真理。」</p>
+<p>我的目标是，经由锻炼能在五月底完全不停地跑完八公里。现在是一月。因此我开始固定跑步。然而就像任何一个忙碌的父亲和丈夫，很多时候我必须放弃跑步，或无法跑完计划的距离。但我不会因此责怪自己，而是全程持续地爱和鼓励自己。有些时候，必须用尽所有的意志力才能出去跑步，但我很高兴地对你说，在四月底前，我已经达到我的目标。虽然我在目标达成时很高兴，但我的自爱和自我接纳并没有根据结果改变。我真的觉得很棒，所以我继续跑步。两年后，我跑完我的第二场马拉松，目前我正在为第三场马拉松接受训练。我一直带着热情发展我的才艺，同时还要平衡生活抛给我的种种挑战。</p>
+<p>我的重点是当你设定任何目标时，只要把无条件的自爱当作起点，你就知道完美并没有绑在最终的结果，而是当下此刻的真实。你从一开始就很完美，现在的你也很完美；从头到尾你都是完美的。你在任何时候都清楚知道，最终结果并不能定义你。透过觉察的修行，让你能看见自己身上的完美，也看得见周遭世界和所有生命的完美。</p>
+<h3 id="基础练习和咒语"><a class="header" href="#基础练习和咒语">基础练习和咒语</a></h3>
+<p>当你一开始想摆脱旧的习惯和旧的思维模式时，你有可能发现，驯化和自爱会同时出现。换句话说，也许你出于无条件的自爱专注地设定目标，但你仍听得见寄生虫的声音，试图逼迫你透过负面的自我对话进行。多数时间，只要你觉察到寄生虫，就能让它闭嘴，但此处的修行，是让你在寄生虫打死不退时重回专注。</p>
+<p>在你努力达成为自己设定的目标，却同时听到寄生虫试图斥责或让你心生怀疑时，第一步是暂停你正在做的事并向内寻求。觉察你的呼吸，专心注意空气在你身体进出、赋予生命的过程。接着是感觉你的脚稳稳地踏在下方的土地。用心灵的知觉，想象自己如何透过呼吸和脚下的土地，连结生命中的一切。从头到脚扫瞄你的身体，这样能让你停止用脑袋思考，提醒自己你的身体有什么感觉。你脑袋里的声音，远远不及你真正是谁。接下来，提醒觉自己因为自己想做，所以才进行这个特别的行动。你已经相当完美，顺其自然地接受结果。请一再复诵以下的句子，直到你的盟友重新掌握你的心灵。</p>
+<p>「我，______，此时此刻是完美且完整的，无论如何我都爱我自己。</p>
+<h3 id="观想"><a class="header" href="#观想">观想</a></h3>
+<p>在托尔特克传统中，我们领悟到心灵是强而有力的工具，能帮助你达成目标。这里的练习有助于你驾驭心灵的力量，将意图集中在创造你希望创造的东西。当你努力想达成目标时，请每天做这个练习，最好是在早上。</p>
+<p>找个安静的地方坐几分钟。闭上眼睛，有意识地对自己传送无条件的爱。为了当下此刻活着而感到感激。为了你的身体和心灵，也为它们能让你体验地球梦境，深深表达感激。接着，将念头转向你正在努力达成的目标。预想自己己经达成这个目标，专心感受达成目标的感激之情。此处的关键在于像是目标已经达成般地心怀感激，因此能让这个经验在你的心中成为真实。关注已达成目标的感激之情几分钟后，将你的觉察带回当下此刻。张开眼睛，出门享受努力达成目标的过程。</p>
+<p>带着觉察设定目标，可能是在地球梦境中创造和共同创造的有用工具，但无论结果如何都记得要爱自己，才是在整个过程都能好好享受的关键。当然总有时候会出现其他人阻碍你达成目标。所以现在的问题变成，那时你要如何反应？这是我们下一章的主题。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_07.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_07.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
