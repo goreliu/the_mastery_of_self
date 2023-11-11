@@ -8,6 +8,6 @@ title = "觉察真我"
 [output.html]
 
 [output.epub]
-#cover-image = "000.jpg"
+cover-image = "cover.jpg"
 additional-css = ["src/epub.css"]
 use-default-css = false
