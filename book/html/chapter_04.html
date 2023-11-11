@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第 4 章 无条件地爱他人 - 觉察真我</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="prefix_1.html">重要名词解释</a></li><li class="chapter-item expanded affix "><a href="prefix_2.html">前言 每个人都迷失在自己的派对梦境中</a></li><li class="chapter-item expanded affix "><a href="chapter_01.html">第 1 章 大师的诞生</a></li><li class="chapter-item expanded affix "><a href="chapter_02.html">第 2 章 了解我们的驯化和依附</a></li><li class="chapter-item expanded affix "><a href="chapter_03.html">第 3 章 无条件地爱自己</a></li><li class="chapter-item expanded affix "><a href="chapter_04.html" class="active">第 4 章 无条件地爱他人</a></li><li class="chapter-item expanded affix "><a href="chapter_05.html">第 5 章 揪出诱因并好好处理陷阱</a></li><li class="chapter-item expanded affix "><a href="chapter_06.html">第 6 章 打破自动的循环</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">觉察真我</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第-4-章-无条件地爱他人"><a class="header" href="#第-4-章-无条件地爱他人">第 4 章 无条件地爱他人</a></h1>
+<p>身为自我主宰的大师，当我直视另一个人的眼睛时，我会看到另一个真我，神性的美好展现。无论这个人的觉醒程度为何，我都敬重地认为他的意图跟我一样强大，这样就是对他展现无条件的爱。如果我试图控制这个人，这我就迷失在烟雾中，有条件地接纳和爱他。</p>
+<p>如果你透过有条件的爱的眼光看待世界，实际上你是在试图控制他人，强加你的意愿，好让他们遵从你认为他们应该是谁的定义。如果他们不同意你的要求，你会用你的批判惩罚他们。</p>
+<p>简单说，这就是有条件的爱。不要忘记，每当你批判某人，就是在惩罚那个人不遵守他们从来没立下的约定。</p>
+<p>在你回顾人生的过程中，你可能发现，许多你认为是为个人自由而战的关系战役，其实是一场决定谁要驯化谁的战争。每当你因为别人的行为而一时感到生气、恼火、愤怒或出现其他任何的负面情绪，你都创造出一个恶棍与受害者的梦境，你也再一次受困在派对的闹剧里。</p>
+<p>觉得自己是受害者而另一个人是恶棍，让你看不见站在你面前的这个人真正是谁，你看不见他们的故事、他们的过去、他们的伤心，以及这一切如何冲击他们的人生，促成你正在对话的人。透过驯化的烟雾，你看见的这个人只是故事里的恶棍，没有好好遵守你认为他该有的价值。</p>
+<p>然而当你用无条件爱的眼光看另一个人时，你才能清楚看见眼前的这个人真正是谁，在充满驯化和有条件的爱的世界里，努力求生与成长茁壮的美好生命。</p>
+<p>无条件的爱，能让你即使不同意他人的选择或信念，还是能尊重他们有
+这样的权利。</p>
+<p>修习无条件的爱，是一种自我修炼的艺术。一旦你认出、释放并宽恕源自于驯化的自我批判，接着你就能在别人的行动受驯化左右时，认出并宽恕他们。在你面前的这个人已被驯化，现在的他还想要驯化你，因为他只懂得这么做，然而他无法在你不同意的情况下降伏你。</p>
+<p>许多人可能特别难以用无条件爱的眼光看待家人，因为这里长出的驯化扎根最深。家人之间的伤痕通常最是伤人，他们伤你最深的理由却是你爱他们。但这相同的深爱，也可以帮助你宽恕和疗愈。</p>
+<p>成长过程中最具影响力的驯化者排名，接在家人之后的大概是你的朋友和同学。你希望他们对你印象深刻或很喜欢你，所以你经常试着根据他们接受的方式，调整自己的行为表现。当然你也可能对他们有相同的要求。这不表示你们之间没有真切的爱，但因为你们全都来自驯化已深的家，所以只懂得这样做，还把这些习惯带进你们的关系。</p>
+<p>总有一天我们会从梦中醒来，开始选择接纳我们、支持我们，并且鼓励我们成长的朋友，我们同样也愿意为他们这么做。但如果我们没有持续辨认驯化如何、在哪儿影响我们，并且努力在它出现时揪出来放掉，相同模式会响随着新的友谊继续发展，我们终究强加条件在对方身上，要他符合我们的新模式，却还以为这是种「开悟」。例如：有时我听到托尔特克圈子里的人说这样的评论：「那个人不是好的托尔特克」或「他没有保持言语正直无伪」。你从这些例子，可以听到开悟的工具如何转变成批判、控制与驯化的来源。</p>
+<p>在所有的关系中，特别是跟朋友和家人的关系（驯化扎根最深），我们的职责是觉察自己再次被派对闹剧吸引、被烟雾蒙蔽的潜在可能。避免的关键是不断提醒自己，任何行动都要出自无条件的爱。这句话说得比做得容易，特别是当驯化的根扎得很深时，但总是有方法可行。</p>
+<h3 id="在地球梦境中创造和平"><a class="header" href="#在地球梦境中创造和平">在地球梦境中创造和平</a></h3>
+<p>当你发现自己跟某人意见不合，感觉自己越来越不高兴时，你可以选择接下来要说什么或做什么。在你说话或采取行动以前，先问问自己道个问题：我打算说或做的是出自无条件的爱或有条件的爱？换句话说，你对眼前这个人的爱与接纳，是否不知为何要视他跟你的意见相符、或做你希望他做的事而定呢？若是如此，那就暗示你的驯化和依附正控制着你，现在你正试图驯化某人接受你的观点。如果你的反应是出自无条件的爱，即使最终不同意他的观点或行为，但也一定会展现对他的尊重。互相尊重，才有可能为地球梦境带来真正的和平；这样的尊重，也能让每个人都感受到自己的选择和行动带来的益处和结果。</p>
+<p>当有条件的爱支配地球梦境时，和平与和谐的表象是透过外力而生，此时的人（们）则屈从他人的意志。政府最惯用这种行为，历史已再再让我们看到，一个团体透过「强权即是公理」的信念控制另一个团体的案例。</p>
+<p>然而这种行径也出现在个人关系，就是当一个人利用职位权力控制另一个人的行为时。当然这不是真正的和平与和谐，也绝对不可能持久，人类永远都想要反抗屈从，极力争取回自己的自由意志。因为我们天性的本质是自由，所以我们永远都会为它而战，即使眼前被烟雾遮蔽。</p>
+<p>问题是如果有群人为了自由而战，但却没有先清除自己的烟雾（也就是自己的驯化和依附），即使他们从压迫者的手中夺回自由，最后还是会用自己的条件取代先前的条件，试图降伏周遭的人，建立他们自以为的和平与和谐。这种强加和降伏的循环，数千年来一直在地球梦境中发生。这也是为什么战争会开始、结束，然后又再开始，无论街边争吵或国际冲突都是如此，因为两者都源自于一边渴望降伏另外一边，而根据的信念是自己的方法才「对」。有条件的爱永远只会产生这样的循环。</p>
+<p>若是出于无条件的爱，和平与和谐应该是对等投入，利用知识和觉察共同创造梦境，其中的多样性则反应此刻不同个体的自由意志。</p>
+<p>很像你在派对里是唯一清醒的人，无法期待任何人想保持清醒或想醒过来。你也无法让任何人这么做。若你试图违抗某人的意志摇醒他，就是在试图用你的想法降伏他。</p>
+<p>那么我们该如何出于无条件的爱与他人交流？我们如何能真诚地试着帮助他人清醒，但却不降伏他们？花时间反思和分辨你真正的动机，永远都是困难的课题，特别是在你盛怒的时刻，此时派对闹剧正试图让你再次相信梦是真的。此外，出于无条件而非有条件的爱，或许还必须做或说些对方不喜欢的事。然而唯有出于爱和尊重地说出你的真理，才是发挥功效的自我修
+炼。</p>
+<p>这些时刻，我会想起父亲曾教我的事：「我对自己说的话负责，但我不对你听到什么负责。」我只负责我伸手可及之处，仅此而已，别人对我所说或所做的事有何反应，不是我能控制。当然这个真理不是一道免死金牌，让你能随便说些或做些无情或故意伤人的事（体谅别人也是我们拥有的选择）。但我们了解，在砍断驯化的锁链时，我们的驯化者和试图驯化我们的人可能很难接受这个消息，特别是一开始。</p>
+<p>真正重要的是我们的意向。当我们心怀无条件的爱时，我们有自信采取的任何行动都是对的，但任何情况的结果都不是我们能够控制。我们尽自己所能，最后能释放我们的依附。一开始或许很难做到，甚至让人有点害怕。但行动是出于无条件的爱的承诺，会灭轻这样的焦虑，因为我们知道，我们的行动和在那之后的其他行动，全都来自我们真实的自己。</p>
+<h3 id="克服怨恨并宽恕他人"><a class="header" href="#克服怨恨并宽恕他人">克服怨恨并宽恕他人</a></h3>
+<p>当你回顾自己曾试图遵守的信念、想法和条件时，你往往会理解，它们源起于过去经历的驯化。有些人可能对这样的理解相当烦恼，端看你成长过程中经历的降伏程度有多高。如果有权力的人凭借势力或操弄对你强加他们的意志，尤其是降伏如果相当严厉，甚至极端，你就很难（有些例子几乎是不可能）透过无条件爱的眼光看待他们。</p>
+<p>就连驯化经验没有特别创伤的人，都很少对于成长阶段发生的这类事件没有一丝愤怒或痛苦。</p>
+<p>源自过去驯化的怨恨，最有可能阻挡你用无条件爱的眼光看待他人。怨恨的英文 resentment 源自法文，字面上的意思是「再次感受」。努力克服怨恨的主要优点之一，是你不再允许过去的任何条件或经历控制现在的你。定义上，如果你紧握怨恨不放，你就被过去奴役。发生过的某件事已经结束，但在你一次又一次地感受它时，就会主动地造成现在的苦难。这就是所谓的怨恨为何，我们自己想再招来一个带着情绪毒药的苦难。</p>
+<p>愤怒、怨恨和嫉妒，全都是寄生虫用来强化自己和控制你的心灵的工具，做法同样是偷偷摸摸。虽然寄生虫精确指出你如何受人虐待，但它提供的解决方法是激起愤怒、悲伤、痛苦等负面情绪，这样一来，最好的状况只是鼓励你不要爱那些伤害你的人，最糟的状况则是反击他们报仇。</p>
+<p>寄生虫使用的工具永远都是有条件的爱，但是这种用法绝对不可能生出至善。你反而会再次迷失在烟雾中，只能做受害者与恶棍的梦。</p>
+<p>唯有无条件地爱与宽恕自己的驯化，你才能找到出路。这有可能是你最艰难的任务，所以当你走上这条路时，请多多善待自己，尤其是你如果曾因为别人的折磨而大大受苦。</p>
+<p>除了宽恕那些伤害你的人，你也需要宽恕自己。因为许多人在深入探究过去的驯化经验时，发现他们对于继续留在那个情境、或没有多做点什么来逃脱的自己感到生气。如果你有这种感觉，记得也要宽恕自己。那时你己经尽力而为，没有必要再责怪自己。</p>
+<p>尊重自己也代表对自己诚实。如果你还没准备好宽恕，那就是你现在的真理。不要用「我必须」来降伏自己。如果你还没准备好，就是没准备好，接纳自己的这个真理，也是在修习无条件的爱。毕竟我们最终想达到的是打破驯化的循环。不要着急，按照自己的步调，为疗愈做好准备，如果你真的想这么做。宽恕，是治愈伤口的最后一步。</p>
+<p>做个宽恕的仪式，或许能帮助你清掉旧情绪，好让你不再受困于过去的苦难（我们在后续的练习就要做这个仪式）。世上有许多美好的灵性传统，它们教导的美妙新祷和其他修行都能让你做到这点。在托尔特克传统中，我们也提倡另一个步骤，让你看穿受害者与恶棍的故事，领会宽恕的疗愈力量。关键在于我父亲提出的第三个约定的核心：不要认为事情是针对自己。</p>
+<p>当你在各方面修习这个约定时，你会意识到任何人做的事都不是因为你。从来都不是针对个人，即便有人如此打算，你也只是刚好站在他的目标区域。了解这个真理，让你更能放掉过去，拥抱此刻的真理，驯化你的人那时只是根据他们的意识程度尽自己所能。</p>
+<p>当你深刻反思这个约定时，宽恕就变得比较容易，因为你理解，他人的行动跟他们自己和他们的苦难、依附和驯化有关。你知道他们迷失在烟雾中、醉倒在派对里，以致于没有能力做出其他的行动。尊重他们，让他们感受自己行动的后果。</p>
+<p>每一个行动，都有相当且相对的反应。这就是生命教导我们的方式。从这个观点来看，我们比较能体会耶稣话语的意思：「父啊，赦免他们，因为他们所做的，他们不晓得。」（《路加福音》第 23:34 节）</p>
+<p>如果你因为怨恨而混淆个人梦境，改变的第一步是开始觉察。一旦你了解实际上发生什么，放掉它的下一步就是宽恕。如此能让你发掘无条件地爱他人有多大的力量。下一个练习会帮助你更深入地进行这个过程。</p>
+<h3 id="宽恕仪式"><a class="header" href="#宽恕仪式">宽恕仪式</a></h3>
+<p>在一张纸上，列出所有你觉得过去曾对你不好，而且你还没宽恕的人。这串名字可能包含家庭成员、朋友、同事、认识的人等。再看一次这张名单，简短地想想跟各个名字有关的事件。</p>
+<p>接着大声念出以下这段话：</p>
+<p>「我，______，已经准备好宽恕所有过去曾让我痛苦和受难的人。我选择宽恕他们，因此他们过去的行动再也不会影响现在的我。我愿意透过无条件爱的眼光看待他们。对于自己跟这些事件有关的所有一切，我也全都宽恕。那时我已经尽了全力。我祈求这些人和我自己，今后都能只感到爱与和平。」</p>
+<p>就像你在前几章做的练习一样，当你宽恕自己时，我希望你把这张纸揉成一团丢掉。这么做的同时，想象所有跟这些人和事件有关的负面感受，全都一起被丢进垃圾桶里。</p>
+<p>这个简单的仪式是个起点，让你开始用无条件的爱取代怨恨伤你的人。但如果他人造成的痛苦相当激烈，不太可能一次就做到宽恕。因此每当过去的事件在心中重新上演、让你又感受到时，你有可能需要重复前述的句子，因为此时寄生虫正试图引导你走向负面性和有条件的爱。</p>
+<p>如果列出的名单中，有你特别难以宽恕的人，请在每晚睡觉前做以下的祈祷，空格处放入你想宽恕的人名。</p>
+<p>「我祈求______得到他生命中想要的一切，包括无条件的爱、和平与幸福的体验。」</p>
+<p>有些人在说这句话时可能相当恼怒，因为祈求这些人得到他们想要的一切，或许跟你对他们的希望正好相反。我了解还种心情，但我鼓励你给还个新祷一个机会，即使言不由衷，但请用两周的期间每晚重复一次。许多坚持做完两周练习的人，对于内心发生的改变相当惊讶。</p>
+<p>记得，宽恕他人是你为自己——不是他们——所做的事。宽恕并不代表你忘记过去的事，也不意味着你赦免任何行动；而是让你从他人的控制中解脱，记起你只对自己伸手所及的事负责。</p>
+<p>本节的最后练习，将帮助你持续往宽恕迈进。</p>
+<h3 id="宽恕对话"><a class="header" href="#宽恕对话">宽恕对话</a></h3>
+<h4 id="第一部"><a class="header" href="#第一部">第一部</a></h4>
+<p>这个练习包含两个书写部分，每部分的长度大约是一段。一开始，我希望你回顾人生，找出一个因为他人的折磨，特别感到受苦的事件或情境。想想某人试图或已经用严厉或极端的方式，强加他们的意志来驯化你的时刻。这应该是让你的个人梦境发生转变的重大事件，这件事改变了你如何看待他人（有可能揭露他们的缺点），最后成为你个人故事的转捩点。许多人有过这类经验，大多可能发生在他们的成长阶段，但也有可能在长大后出现。</p>
+<p>写下这个事件的细节，就像你准备把这件事告诉某个一无所知的人。不要着急，慢慢来，在心中重演这件事的细节，回到那个时刻，这样你就能记起发生了什么以及有何感受。此处有个重点，从你当时的观点来写，不是写你现在的想法。尽量原封不动地重现当时情况，让你的感觉自然流泻，不要用自己认为的是非对错改写，也不要试图宽宏大量。请记住，这是为自己做的练习，除非你愿意跟别人分享，否则只有你自己看到。</p>
+<p>以下是我一个好朋友的例子：</p>
+<p>在我九岁的某个晚上，我正在家里看电视，那时我听到我爸妈在另一个房间争吵。我以前听过他们吵架，但是今天晚上好像不太一样。我妈妈走进来，叫我回自己的房间把门关上，这件事很不寻常。我照她的话做了，胆战心惊地安静坐在房里，透过薄薄的墙壁，听到外面的吼叫声越来越大。那时我听见一些永远都忘不了的事，在我妈妈恐怖的尖叫声后，紧接着是令人毛骨悚然的静默。</p>
+<p>我吓得不敢动弹，很想要离开房间，但我害怕走出去会发现什么。</p>
+<p>我打开门，慢慢走向客厅。我爸爸一个人坐在沙发上，当他看到我时，他说：「你妈妈跑出去了。你到外面去找找她。」我记得那时对他妈的感觉既恐惧又生气，但我最担心的还是妈妈。我出门去找她。外面天很黑，我非常害怕。我在黑暗中四处张望，大声喊我妈妈，但是她没有回应。然后我注意到邻居家门口的灯亮了。</p>
+<p>在我走向这家门口的同时，我能听到我妈妈的啜泣声。我问她发生了什么，但其实我已经心知肚明。她说：「你爸爸打我。他对我拳打脚踢。」夹带着悲伤的怒火向我席卷而来，如果他敢再试着这样做，我发誓会保护我妈妈。我说：「要是他敢再打你，我会杀了他。」那个晚上，我的人生起了变化，因为在我的生命中，第一次完整看到我爸爸的阴暗面。他在六个月后自杀了。</p>
+<p>在我朋友的例子中，他的父亲试图用蛮力驯化他的母亲（和我朋友一起）。你的例子或许没有那么极端，或可能更加激烈。如果你希望这个练习能发挥最大功效，我建议你在写下自己的例子以前，不要再继续往下读。当你写完之后，再回来看接下来的内容并且继续练习。</p>
+<h4 id="第二部"><a class="header" href="#第二部">第二部</a></h4>
+<p>第二个部分需要你的想象力。我希望你想象自己遇到伤害你的人，但这个人只是以灵的形式出现。在这次的会面中，你可以直接跟另一个人的真我交谈，他的这个部分是觉醒的，没有迷失在烟雾中或醉倒在派对里。这种形式的他，充满无条件的爱，你可以毫无恐惧地对他畅所欲言。告诉他，你对那个情境的真实感受，然后想象这个人的真我会对你说些什么。将你们之间的对话全写下来。</p>
+<p>以下是我朋友的例子。</p>
+<p>爸爸，我对发生的事，真的很生气而且难过。我无法相信你会像这样打你太太。你把我吓坏了。我们是最好的朋友，我是那么地尊敬你。我无法了解你为什么会那样做。你到底是怎么了？当你喝酒的时候，完全变了一个人。我很愧疚自己那时没有试着阻止你。当你在几个月后过世时，我很难过，但也有点松了口气，因为我知道我再也不用担心你粗暴的行为。你的死，让我感到松了口气，但也让我忍不住地感到愧疚。</p>
+<p>儿子，对于伤害了你和你的妈妈，我感到相当抱歉。我完全失去自制的能力。我不知道自己在做些什么。当我喝酒的时候，我已经不再是我自己。请了解，我只希望能给你和你妈妈最好的。我非常爱你们两个，如果可以，我真想收回那个时刻。我真的非常、非常抱歉，希望能请求你的原谅，你绝对不需要感到愧疚。要为整件事负责的人是我，所以我
+希望你现在能放掉这一切。请你了解，现在在这里的我，对你和你的妈妈只有爱，我会从远方尽可能地帮你。</p>
+<p>这个练习能让你触及当时的感受并且表达出来，然后倾听另一方的回应从他的真我说出的话语。多数人做完之后，变得比较能理解另一个人的行动不是针对自己，明白无条件的爱存在每一个人的心底。</p>
+<p>在你探索和释放过去那些让你痛苦的事件时，记得对自己仁慈点。做这些事可能相当难熬，但真相是如果你越费劲、你的收获就越多。你体验到的自由，将深深影响你未来的人生，但倘若没有历经宽恕的重要步骤，你就很难在自己的道路上继续前行。慢慢来，当你需要时重做这些练习，一点一滴地逐步深入。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_03.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter_05.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_03.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter_05.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

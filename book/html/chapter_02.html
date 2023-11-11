@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第 2 章 了解我们的驯化和依附 - 觉察真我</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="prefix_1.html">重要名词解释</a></li><li class="chapter-item expanded affix "><a href="prefix_2.html">前言 每个人都迷失在自己的派对梦境中</a></li><li class="chapter-item expanded affix "><a href="chapter_01.html">第 1 章 大师的诞生</a></li><li class="chapter-item expanded affix "><a href="chapter_02.html" class="active">第 2 章 了解我们的驯化和依附</a></li><li class="chapter-item expanded affix "><a href="chapter_03.html">第 3 章 无条件地爱自己</a></li><li class="chapter-item expanded affix "><a href="chapter_04.html">第 4 章 无条件地爱他人</a></li><li class="chapter-item expanded affix "><a href="chapter_05.html">第 5 章 揪出诱因并好好处理陷阱</a></li><li class="chapter-item expanded affix "><a href="chapter_06.html">第 6 章 打破自动的循环</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">觉察真我</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第-2-章-了解我们的驯化和依附"><a class="header" href="#第-2-章-了解我们的驯化和依附">第 2 章 了解我们的驯化和依附</a></h1>
+<p>在我的家族中，有个流传数代的古老托尔特克传说，是关于一个萨满自称为「烟雾弥镜」（Smokey Mirror）的故事。他取名为此，是因为有天他开始觉察烟雾不只遮蔽自己的视野和控制自己的意志，还让周遭的每个人也同样看不清楚。在我们开始更深入探讨自我修炼以前，很值得先仔细讲讲「烟雾弥镜」的故事。</p>
+<p>经过多年的研究，这位萨满在重大领悟的时刻体验到真理，他说：「我是光所组成，我是群星所组成。真实的我们是纯粹的爱、纯粹的光。」</p>
+<p>在他环顾村庄之际，他知道自己眼见的万事万物都是神的表征，他直觉了解身为人的这段旅程，是个神性逐渐觉醒的过程。</p>
+<p>深受这个领悟感动的萨满，立刻想跟村庄里的每个人分享这个讯息。然而当他这么做时，他清楚知道没有其他人能够了解。萨满接着领悟到，在他和所有人之间有烟雾迷漫，就是这烟雾让人无法看得长远。烟雾控制他们的每个行动和每个信念。</p>
+<p>萨满也注意到，在他与别人来往时，烟雾试图再次施展对他的控制。然而只要他一注意，烟雾立刻悄然退却。光是「注意」这样简单的动作，就使得烟雾消散。随着烟雾渐渐散去，他开始觉察眼前有面镜子，从中能模糊看见自己的反射。而当烟雾完全散去时，他能重新彻底地看清自己。</p>
+<p>萨满知道他是真理，镜中的反射则是提醒；它只是反应真理。于是他开始将反射理解为觉察的器具。</p>
+<p>每当烟雾开始悄声入侵，让他不知道自己真正是谁，他就看向自己的镜子。</p>
+<p>如果模糊不清或无法看见自己，他就知道自己走错了路，身陷在迷雾当中。然而只要记起自己的真我，烟雾会立刻开始澄清。为了提醒自己真正是谁和烟雾模糊知觉的力量，萨满将自己的名字改为「烟雾弥镜」。</p>
+<p>这个撼动人心的故事，在我们家族的托尔特克传统中形成核心教诲。烟雾代表我们的依附和驯化，两者携手阻挡我们体会自己是谁的真理。</p>
+<h3 id="驯化"><a class="header" href="#驯化">驯化</a></h3>
+<p>我用一个简单的故事来解释驯化。</p>
+<p>想象一个八、九岁的小孩跟奶奶一起吃午餐，奶奶为两人准备的餐点是汤。他们租孙坐在一起边吃边聊，享受彼此的陪伴与爱。</p>
+<p>喝完半碗汤后，男孩觉得自己饱了。「我喝不下了，奶奶。我吃饱了。」</p>
+<p>奶奶回说：「孩子，你必须喝完全部的汤。」</p>
+<p>无论你是否为人父母，都可能清楚知道这个男孩的奶奶试图做些什么。她的心意值得赞扬，她希望孙子吃得够多，好得到营养。当男孩婉拒时，她说服他多吃一点，利用奖励来达成她的希望。这是驯化的第一个工具。</p>
+<p>她说：「你必须喝完你的汤，这样你才能长得又高又壮，就像超人一样！」</p>
+<p>但是小男孩依然故我。「不要，我不饿了，现在我完全不想再喝汤了。」他坚持着说。</p>
+<p>除了不饿，男孩也喜欢坚持己见的感觉，因为说「不」，能表达自由意志的感觉很了不起。在他对想要的东西说要的时候，也可能有相同的感觉，这么说让他觉得很棒。这就是小孩（包括我们自己小时候）如何学到意图的力量，透过说要和不要。</p>
+<p>终于奶奶的耐性已到达临界，当胡萝卜不管用时，她改用棍子来强迫孙子。就像许多的祖父母和曾祖父母们，不尊重孙子的选择并强加惩罚（在这个例子中是罪恶感与羞愧），这就是驯化的第二个工具。</p>
+<p>「你知道世界上有多少小孩完全没东西吃吗？他们都饿得要命！但是你却在这里浪费食物。浪费食物是有罪的！」</p>
+<p>现在这个小男孩感到不安。他不想看起来像个自私的小孩，他真的不希望在奶奶的眼中自己像个罪人。挫败感让他屁服，使他不再坚持己见。</p>
+<p>「好吧，奶奶，我会把汤喝完。」</p>
+<p>他又开始喝了起来，直到把汤全部喝光才停。然后奶奶温柔地说：「这才是我的乖孙子。」小男孩也因此感到安全与被爱。</p>
+<p>小男孩学到，顺从梦境的规则可以得到奖励。在这个例子中，他是奶奶眼中的好孩子，得到奶奶的爱与鼓励。惩罚则是被视为自私的小孩，在奶奶的眼中是个罪人和坏孩子。</p>
+<p>这是驯化如何作用的常见例子。没有人怀疑奶奶的一片好意，她爱孙子，希望他吃完午餐，但是她用来达到目的的方法，却出现意想不到的负面后果。罪恶感和羞愧只要被用作引发行为的工具，任何达成的好处都会被抵消。最后这些负面元素终究以某种形式浮出表面。</p>
+<p>在这个例子中，我们可以想象当小男孩长大时，这方面的驯化强烈到他成年依然深受影响。例如：多年后，他走进一家餐点分量很大的餐厅，吃到一半时，他的身体告诉他当下的真理是：「我饱了。」</p>
+<p>他意识或潜意识听到的声音是：「浪费食物是有罪的。」</p>
+<p>他意识或潜意识的回答是：「好的，奶奶，然后继续吃。」</p>
+<p>像个好孩子吃完所有食物的他，回应的是自己的驯化，而不是当下的需要。在那个瞬问，他完全违背自己，即使身体已经告诉他饱了，却还是继续地吃。这个想法强烈到让他违抗身体想停的自然偏好。吃得过饱可能伤害他的身体，这是利用罪恶感和羞愧做为工具的例子中，其中一个负面后果。另一个后果是，当他再次经历过去的罪恶感和羞愧时，他感到内心受苦，这种苦难的感觉控制他当下的行动。</p>
+<p>最后请注意，他的奶奶并没有出现在当前的情境，现在的他已自己握住驯化的疆绳，不用他人影响就放弃自己的意志。在托尔特克传统中，我们将这个现象称为「自我驯化」（self-domestication）。就像我父亲喜欢说的：「人类是地球上唯一会自我驯化的动物。」</p>
+<p>小男孩和奶奶之间的关系，形成部分的地球梦境，而奶奶和孙子之间的午餐，是梦中如何发生驯化和自我驯化的基本例子。奶奶在那个时刻驯化她的孙子，但在之后的很长一段时间，小男孩仍持续地自我驯化。自我驯化是我们唯有遵守地球梦境中的他人的理想目标，我们才接纳自己，连想都不想这些理想目标是否真是我们自己想要。</p>
+<p>喝完整碗汤的后果或许不怎么严重，但驯化和自我驯化也可能以更严重、更邪恶的形式出现。举例来说，我们许多人学到对自己的外表苛刻，因为根据社会的标准来看还「不够好」。我们得到的信念是我们不够高、不够瘦，或是我们皮肤的颜色不对。从我们同意这个信念的那一刻起，我们就开始自我驯化。因为我们采纳外在的信念，所以我们不是排斥，就是企图改变自己的外表，好让自己觉得值得自我接纳和被他人接纳。试想一下，如果我们全都喜爱我们身体原本的样子，会有多少企业无法继续生存。</p>
+<p>先说清楚，关于身体意象的驯化，并不同等于为了健康而想减重，甚至偏爱自己看起来像什么样子。最主要的差别，偏爱是出于你的自爱与自我接纳，然而驯化是从羞愧、罪恶和「不够」开始。有时两者间的界线可能相当模糊，但自我主宰的大师能自我审亲并判定自己的真实动机。</p>
+<p>在当前的地球梦境中，另一个常见的驯化形式，跟社会阶级和物质财富有关。社会普遍流传一个潜在信念，那就是拥有最多「东西」或担任特定职务的人，不知怎么就是比其他的人重要。就我而言，我从来没有遇过任何一个人比其他人重要，因为我们全都是神投的独符与美好生命。然而许多人追逐自己并不喜欢的职业生涯，购买不是自己真心想要或真的需要的物品，一切的努力，都只为了达到同侪接纳和自我接纳这种难以达成的目标。像这样的例子（以及我们可能想到的其他许多例子），就是驯化如何导致自我驯化，造成我们之中有些人正过着不属于自己的人生。</p>
+<p>我想跟你分享一个我挚友的例子，他先是这样被驯化，后来他如何破茧而出。我的朋友在很小的时候，家人就鼓励他当律师。</p>
+<p>他们对他的幼小心灵不断地灌输金钱与权力的故事，也说他具有在这方面功成名就的一切必备技能。在家人的鼓励下，我的朋友在大学选了法律先修课程，然后直接进入法学院就读。但入学的不久后，他发现自己无法面对律师的执业工作。事后来看，他意识到自己己经被这样的想法驯化，当律师会让他有钱、有权，最重要的，在家人的心目中很特别；但真相是走上这条路其实是追寻家人的梦想，不是自己的梦想。当他向家人宣布放弃攻赞法学院时，许多人很失望，拚命地试图改变他的心意，不过他都能因为心意已决而立场坚定。这是多年前发生的事，现在的他，每当想起过去的计划只是轻声笑笑，因为他非常满意现有的作家和灵性老师的专业。</p>
+<p>这个例子说明，在我们孩提时和长大后深植心中的想法，通常都不是反应自己偏爱的道路。然而就像我的朋友一样，你的内在有力量能突破任何你经历的驯化，第一步是开始觉察驯化，找出什么才是你的真实。</p>
+<p>最后我想澄清，虽然我一直强调驯化的负面观点，但不是所有的驯化都会导致负面后果。换句话说，不能光是因为想法透过驯化深植心中，就认定它绝对不好，而你必须拒绝。如果这个想法刚好符合你的真实偏爱，那就是美妙的事，举例来说，如果我朋友最后很喜欢他的律师工作，那就没有理由改变职业。一旦你用澄清的心为自己做出选择，认为那个特定的想法或信念很适合自己，那么继续维持就没有什么问题，重点是要由你自己做出有意识的选择。</p>
+<h3 id="依附"><a class="header" href="#依附">依附</a></h3>
+<p>从最基本的意义来说，依附是从世上的物品开始。你能在大约两岁的小小孩身上看到这点，就在他们一开始将所有物联想并宣告为「我的」时。任何曾试图从两岁小孩手上拿走玩具的人，都可以证实依附的力量有多强大。虽然依附物品是个起点，但绝对不是终点，因为更有害的依附通常是看不见的，这里我指的是依附我们自己的想法、意见和信念。</p>
+<p>先前我在《依附的五个层次》（The Five Levels of Attachment）详细解释依附的概念，并且提供测景的标准，让你知道自己跟信念，想法和意见的结合程度有多高。为了让大家了解依附本身以及依附跟自我修样的关系，我打算用书里一个受欢迎的故事当例子。这个例子告诉我们，只要一不小心，依附可能会如何迅速地变不健康，造成我们生活中的苦难。</p>
+<p>想象自己很喜欢足球。你没有支持特定的队伍或选手，也不在平比赛的场地是豪华的足球场或随便的泥巴地；对于只是爱看比赛的球迷，两者都一样好。选手可能表现优异或一般般，但是你并不在乎，只要每个参赛的人都喜欢比赛就好。在你看球赛时，通常没有选择为哪一方加油，即使你真的选弹支持其中一队，你也没有太过热情地为还方加油，只是让比赛比较刺激而已。因此无论哪一队赢得胜利，都不会对你个人造成影响，因为你没有把支持某一队当成自我认同的一部分。裁判吹哨子的那一刻，比赛就此结束，无论谁输谁赢，你都放下了这场比赛。</p>
+<p>你走出球场继续过自己的人生，但享受了一场美好的球赛。</p>
+<p>在这个故事情节中，当你看球赛时，你只是单纯享受那个瞬间，没有依附任何结果。你体验到最纯粹的喜悦，这样的喜悦，源自于渴望体验比赛本身，或是没有条件的人生。你在整个过程都保持自己的个人自由，所以比赛的结果，不会对你的人生造成半点影响。</p>
+<p>延续这样的比喻，让我们想象你喜欢足球，不过现在你是某一队的忠实球迷，你对他们的队徽有很深的共鸣。当裁判的哨音响起时，比赛的结果让你的情绪高低起伏。当你支持的队伍胜利时，你欢欣鼓舞；当你支持的队伍输掉时，你感到沮丧。</p>
+<p>当你以球迷自居时，你对球队的依附，开始冲击到球场之外的个人生活。例如：当你的队伍输掉时，那天的工作可能超级不顺，或许你跟某人争论谁或什么要为输球负责，或者你完全顾不了其他许多好事，只是感到难过沮丧。无论对你产生什么影响，你都让特定结果改变你自己的角色。你对足球的依附，已经渗入跟足球毫无关系的世界。</p>
+<p>如果任由这种依附继续发展，它会变得越强、越根深柢固，直到你喜爱的队伍是赢是输的故事，现在全都跟你有关。你的队伍的表现影响你的自我价值。当你看比赛的统计资料时，你责怪球员让「我们」看来很糟。如果对手赢了，你生气地认为他们打败了「你」。你不只是把比赛带回家，还彻底地把比赛变成你是谁的一部分，由它形塑你自己的认同，因为你相信这样才代表「真正」的球迷。</p>
+<p>虽然现实中足球队跟你无关，但你把自我的重要性跟队伍的成功与否连在一起，因为你自己选择特别认同他们。你的生活跟你对球队的依附，两者间模糊到再也分不清楚，你深深地相信，对这个球队有不同意见的任何人都是错的。或许你甚至开始把对球队的忠诚度设为结交朋友的条件。</p>
+<p>如果你很难理解跟运动有关的比喻，可以试想两个现实生活的例子。在运欧洲某个足球季结束时，有个知名队伍在输掉一场决定性的比赛后被降级。目睹这场失败后，有个球迷回家上吊自杀。在他的心目中，如果支持的球队没有进入超级联赛，他也不再有活着的价值。另一个例子，有个公车司机支持的球队输了，在某场球赛输掉后，他难过到开公车闯进身穿胜利队伍球衣的人群。四个人因为穿了「错误」的队徽而死。这个男人对球队的依附，大到他为此杀人。这两个人，早就失去纯粹为了足球而看比赛的喜悦。</p>
+<p>幸好，因为喜爱的球队输掉而杀人或自杀的事件极为罕见。但如果我们把主题换成像是宗教、政治、金钱、性爱和权力时，不好的后果就多了许多。当你开始依附某个物体、想法或信念时，你让它变成你自以为的一部分的自己。然后一旦烟雾在你眼前升起，你的亲野就变得模糊。你再也看不见那个跟你意见不合的人的人性，你只能看见你想对抗的拟人化的想法。</p>
+<p>当你的镜子清明时，你能看见每个人的神性。你可以在任何教堂、犹太教会、寺庙、清真寺或鼓乐圈中，发现并感受到神的爱与恩典。然而对于那些在烟雾中迷失的人来说，神只不过刚好是那个宗教虔诚关注的中心。换何话说，宗教的信念和仪式，比当下此刻感受到神来得重要。这是不健康的依台目的力量。</p>
+<h3 id="了解驯化和依附之间的关系"><a class="header" href="#了解驯化和依附之间的关系">了解驯化和依附之间的关系</a></h3>
+<p>在足球迷的例子中，依附是由真诚所爱之物——足球比赛——而生。球迷让他对球赛的爱，把自己拉进迷雾，因为他把球赛当作自己认同的一部分，分不清真实的自己跟球队有何关联。</p>
+<p>在男孩和奶奶的例子中，男孩受到想法（「他必须吃完自己所有的食物」）驯化，即使这个想法根本不适合他。到了成年时，他还继续坚持自己应该吃完食物的想法，甚至无视于身体提出的相反意见，结果现在的他也依附这个想法。两者间需要了解的差异是─—依附并非永远出自于驯化，但放任不管的驯化，最后一定会导致依附。以下是驯化如何演进为依附的过程：</p>
+<ol>
+<li>驯化。透过跟地球梦境中的他人互动，你受到某个想法驯化（奶奶驯化她的孙子，让他相信没有吃完盘子里的所有食物是种罪恶）。</li>
+<li>自我驯化。一旦这个想法深植心中而你接受了它，就会变成一种信这念。你不再需要外在的驯化者强加这个想法，你会自己对自己这么做。这就是自我驯化开始作用（孙子长大后，就算不饿还是习惯性地吃完盘子里的所有食物）。</li>
+<li>依附。你现在依附这个信念，根据依附的强烈程度，你也按照满足信念的高低，决定是否接纳自己和他人（孙子觉得如果自己没有吃完盘子里的食物就会感到罪恶：他还告诚没有吃完食物的朋友，而且用相同的想法驯化他的孩子）。</li>
+</ol>
+<p>如你所见，依附可能通常由驯化引起。讽刺的是，当这样的情况发生时，你开始依附你最初根本就不同意，只是因为驯化而采纳的想法。最后的结局是，你不知不觉地坚持甚至不适合你的想法（还强加在别人身上）！</p>
+<p>驯化和依附携手合作，一起拆散你和你的真我，让你迷失在烟雾中，受困在派对的闹剧里。这样的循环（驯化、自我驯化、依附）可能持续好几世代，直到你转化成自我主宰的大师，才能打破这一条锁链。以下的练习，能帮助你开始辨认自己的驯化和依附。一旦你认出它们，接着就能决定自己是否准备好放掉它们。</p>
+<p>（缺页：62-63。）</p>
+<p>◆ 它给你什么样的安全成？</p>
+<p>◆ 你的认同或自我感如何跟这个物品连在一起？</p>
+<p>◆ 它如何提高你的自我本你？</p>
+<p>◆ 你是否满心欢喜地让别人看这个物品？或者你不让任何人看这个物品，只是秘密地因为拥有而感到特别？</p>
+<p>◆ 拥有它是否让你觉得比别人更有魅力、更富裕、更安全、更聪明，或是更神圣崇高？</p>
+<p>请坦率面对，根据你当前的情绪诚实反应。答案没有对错，重点是探索你跟物质的深切关联。</p>
+<p>现在把选张纸揉成一团，然后丢掉。闭上你的眼睛，想象这个物品从你的生命中永远消失。你有什么感觉？没有它的生活像是什么样子？没有这个物品的你会是谁呢？</p>
+<p>既然你已经探索失去这个物品的想法，接着再问问自己下列这些问题：</p>
+<p>◆ 这个依附是否正在影响你跟生活中他人的关系？</p>
+<p>◆ 你的依附使得你只求安稳，不再追寻其他你真正想要的东西吗？</p>
+<p>◆ 你能否想到任何时刻是因为这个物品而改变你的行动？</p>
+<p>◆ 这个依附如何影响你的个人自由？</p>
+<p>◆ 最后你是否想保留这种层次的依附？或你是否想降低依附的层次，甚至放开依附？选择权永远在你的手上。</p>
+<p>在你回顾自己的答案时，你亲眼见证自己一想到失去物品会经历什么程度的恐惧。恐惧越是激烈，你的依附越有可能让你在失去这个物品时感到受苦。地球梦境中有件事是肯定的：物品终将瓦解、受损、消逝。梦境中没有什么会永远留存。</p>
+<p>重复这个练习，挑选一个人、信念、角色、身体意象或想法来检验。或选许是你在家中的身分（父亲、母亲、儿子），或是你据此行事来提高自我感的其他能力。你是否依附你扮演的特定角色？</p>
+<p>如果那个角色突然改变，你有什么感觉？你是否依附你的外表？如果你的外貌一夕改变又会如何？就跟实质的物品一样，信念和社会角色，甚至是生命中的他人，全都注定会改变或消失不见。没有这些的你又是谁呢？</p>
+<p>如果你跟多数人一样，你会发现自己对许多物品、信念和角色，各有不同层次的依附，这些层次都有可能波动。光是开始觉察这些依附，就是往卸除它们的力量跨出好大一步。你开始觉察依附的时刻，就是这个依附开始松绑你的时刻。办认依附并想象它们瓦解，让你有机会看到挣脱任何依附的真我，因为你是谁的真理终究比任何的物品、角色或信念都伟大许多。</p>
+<p>若少了觉察，我们的驯化和依附就混淆我们的知觉。认出它们，让我们得以清除烟雾，看见当下此刻的真理。在下一章，我们将探讨赋予驯化和依附力量的力是什么，以及自我主宰的大师用什么力消灭它们。</p>
+<p>（缺页：66-69 中的两页。）</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_01.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter_03.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_01.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter_03.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
