@@ -11,3 +11,7 @@
 [第 6 章 打破自动的循环](chapter_06.md)
 [第 7 章 多重面具](chapter_07.md)
 [第 8 章 目标设定](chapter_08.md)
+[第 9 章 比较和竞争](chapter_09.md)
+
+[结语 给你的祝福](postfix_1.md)
+[致谢](postfix_2.md)

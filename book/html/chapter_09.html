@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第 9 章 比较和竞争 - 觉察真我</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="prefix_1.html">重要名词解释</a></li><li class="chapter-item expanded affix "><a href="prefix_2.html">前言 每个人都迷失在自己的派对梦境中</a></li><li class="chapter-item expanded affix "><a href="chapter_01.html">第 1 章 大师的诞生</a></li><li class="chapter-item expanded affix "><a href="chapter_02.html">第 2 章 了解我们的驯化和依附</a></li><li class="chapter-item expanded affix "><a href="chapter_03.html">第 3 章 无条件地爱自己</a></li><li class="chapter-item expanded affix "><a href="chapter_04.html">第 4 章 无条件地爱他人</a></li><li class="chapter-item expanded affix "><a href="chapter_05.html">第 5 章 揪出诱因并好好处理陷阱</a></li><li class="chapter-item expanded affix "><a href="chapter_06.html">第 6 章 打破自动的循环</a></li><li class="chapter-item expanded affix "><a href="chapter_07.html">第 7 章 多重面具</a></li><li class="chapter-item expanded affix "><a href="chapter_08.html">第 8 章 目标设定</a></li><li class="chapter-item expanded affix "><a href="chapter_09.html" class="active">第 9 章 比较和竞争</a></li><li class="chapter-item expanded affix "><a href="postfix_1.html">结语 给你的祝福</a></li><li class="chapter-item expanded affix "><a href="postfix_2.html">致谢</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">觉察真我</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第-9-章-比较和竞争"><a class="header" href="#第-9-章-比较和竞争">第 9 章 比较和竞争</a></h1>
+<p>在我们来到本书的最后一章时，我想先回到前面提过的足球比喻。不过现在你不是对球赛结果有不同程度依附的粉丝，而是想象自己也在场上打球。</p>
+<p>身为球员，你的目标是打赢球赛，你可以选择不同的动机来达成目标。如果驱使你的是寄生虫的声音，你就回归到自我贬低和自我鞭策，这样的你唯有赢得胜利才会爱和接纳自己。如果你应用前一章简述的步骤，可以整场比赛都无条件地爱你自己，那么无论结果如何，你都会为了打球本身而享受比赛。</p>
+<p>设定只跟你有关的目标（例如：跑完八公里），完全不同于设定跟别人有关的目标（赢得足球赛胜利）。后者的情况，有可能出现对手阻挡你达成目标。这是一场竞争，此时的问题变成——你在整个过程中如何看待你的对手？你会无条件地爱你的对手吗？你能否将你的对手视为真我的另一个表征？亦或者你是否把他妖魔化，将他视为不惜任何代价都要打败的敌人？如果你失败，你会对你的对手做出什么举动？</p>
+<p>这些问题都很重要，因为在我们的社会里，生活常被描逃成一场竞争。如果你看看四周，电影、电视、书籍，特别是各式各样的广告都在大量传递这样的讯息：你在生活中想要的一切全都「限量供应」，像是爱、幸福、友谊、工作或职业、美貌、金钱，或者物质财富，因为限量供应，所以最好极尽全力在别人取得前先到手。这个想法「经济学名词通常称之为「稀少性」(scarcity）」，在你和许多认识的人之间创造出不太隐谁的比较和竞争氛团。</p>
+<p>稀少性这个想法，及其随后而来的竞争心态，普遍到难以完全找出它的各种形式。例如：当你第一次遇到某个人时，请注意自己是否开始根据你个人觉得重要的事，把他跟你自己做比较。你是否评价另一个人的外表，来跟你自己一较高下？你是否估计他们的物质财富、教育程度或社会地位，来跟你自己做比较？或许你质疑这个人是否比你「更有灵性」。比较的模式会根据你觉得什么重要而改变，但比较的举动机乎永远都导致竞争，即使只存在你的心中。「不落人后」这一句俗话，明白指出我们大多有比较和竞争的心态。这是个习惯，需要觉察和努力才能摆脱。</p>
+<p>值得注意的，英文稀少性(scarcity)的前四个字母，跟惊恐（scare)的前四个字母完全一样，因为恐惧正好就是被稀少性激起的想法。如果恐惧自己想要的东西不够，就会将地球梦境中的他人视为有限资源（像是爱、幸福、金钱等）的竞争者，然后据此行动。如你所知，恐惧激起的任何行动，都不可能被无条件的爱激发，最终只会导致某种形式的苦难。当你毫不质疑地接受稀少性的概念时，结果就是你相信别人代替你得到你需要的某样东西。这样就很难跟地球梦境中的他人好好来往，因为你已经把他们都变成对手而不是朋友。</p>
+<p>在托尔特克传统中，我们了解稀少性的想法——通常在地球梦境中随处可见——是虚无的神话。从很小的时候，你就受到驯化，相信稀少性存在的错误信念。但真相其实是此时此刻你需要的一切，永还都很足够。如果你相信稀少性的神话，你就会感到害怕，把别人都当成竞争对手，然后再一次迷失在烟雾中。</p>
+<p>请注意，我不是说此刻你想要的任何东西永远都很足够，而是你需要的东西一定足够。这两者有巨大的差异。或许你在世上有许多想望和偏爱，但却在你希望得到时没有达成，然而自我主宰的大师知道，生命永远都会提供你此刻正好需要的东西。这不只是理论，实际上你立刻就能向自己证明。</p>
+<p>花点时间想想你的过去，辨认几个有意义的情境，那时的你没有得到你认为自己想要的东西。</p>
+<p>例如：你是否想要升迁或换工作却没有成功？你是否想跟某人交往但最后他不想呢？你从生活中找出的这些情境，后来发生什么？</p>
+<p>我有个朋友，他在几年前相当深刻地体验到这个真理。他和太太在结婚将近十年时，听到她说已经不再爱他，所以提出离婚。我的朋友相当难过。他乞求、抗辩，用尽全力想说服太太不要离婚，但一切全都徒劳无功。当她离开时，他陷入深深地沮丧，深信这次离婚是他人生中最惨的事。</p>
+<p>然而过后，他开始探索自己。他开始自我审亲，释放他自以为是的一切想法。慢慢地，他愿意接受这个想法，这次离婚虽然不是他想要的，但却是他需要的。经过一年左右的进一步自我探索，他能够跳脱过去，疗愈可能在离婚前就有的伤口，而且重新开始约会。不久之后，他遇见生命中的真爱，他们很快就结婚，现在已经有三个美好的小孩。这个故事特别值得注意的，虽然我的朋友想要小孩，但他的第一任太太并不想，而他愿意为了跟她在一起放弃那个梦想。事后来看，他很感激前妻离开他，因为若非如此，现在的他不会跟现任妻子拥有这么珍贵的孩子，并享受令人满意的关系。</p>
+<p>我朋友的经验向我们证明，有时需要跟事件保持一定的距离，才能看清楚这个教诲的真理。如果仔细看看过去得不到想要的东西时的情况，你有可能发现，其实你已经得到你正好需要的东西。即使情况的最后结果无法像我朋友的例子那般清楚明白，但自我主宰的大师还是能发现内在的力量，开放地接纳这个原则。</p>
+<p>（缺页：212-213。）</p>
+<p>和完整的你。你没有缺陷、不会糟糕、没被破坏，更不是无可救药。你经历的多数苦难都是自己造成的，大多都可回溯到相信这个假象。感到没有价值，是你不愿意无条件地爱你自己的主要原因。想让生活发生改变，最有效的做法就是放掉这个错误的想法。一旦你用无条件的自爱和自我接纳取代错误的信念，稀少性的神话就会粉碎，跟他人比较和竞争的念头也随之终结。</p>
+<p>完美就是完全没有缺陷。问题是我们会用我们的约定来定义什么是缺陷。世界上没有缺陷这种东西，只有我们在地球梦境中做的约定，不过这是一种错觉。因此生命中的一切都很完美。</p>
+<h3 id="比较与角色典范"><a class="header" href="#比较与角色典范">比较与角色典范</a></h3>
+<p>孩提时，我们每个人都有角色典范，或是我们景仰和想要成为的人。我们的第一个角色典范，大多是我们的父母或主要照顾者，然后转变成我们的手足、老师、运动明星、超级英雄，甚至是朋友。随着我们渐渐长大，我们的角色典范通常扩大到艺术家、学者、人道主义者、政治领袖或精神导师。在这些人身上，我们看到他们具备我们想要的特性，因此通常会努力地赶上他们。这种美妙的方式，让值得崇敬的特性，从一个个人梦境传递到另一个。</p>
+<p>然而就像我们在本书谈过的其他许多内容，用于正向之处的东西也可能变成负向。若是如此，你可能开始跟你的角色典范比较，把他们的正向例子当作工具，用来责怪或鞭策不够像他们的自己。你根据想要像别人的渴望，制造出自爱的条件。</p>
+<p>举例来说，假设你的角色典范是德雷莎修女（Mother Teresa），二十世纪最为人所知的天主教修女，她十八岁从欧洲前往印度，建立宗教组织，终身奉献于帮助生病和穷困的人。值得崇敬和仿效这位特别女士的理由很多，如她的无条件的爱、宽容、慈善、无私等。然而若少了觉察，你也可能开始把她当作例子批判自己不够格，说出这样的话：「我帮助的人不够多」、「我不像德雷莎修女一样好」。这么说的当下，你不但没有把她展现的特性视为鼓舞，现在还自行开启不健康的比较过程，利用比较当作攻击自己的理由。于是寄生虫便趁机偷偷潜入，重新掌控你的心灵。</p>
+<p>仔细想想其中的荒谬之处。德雷莎修女或任何真正称得上正面角色典范的人，都不会希望你变成这样。当你发觉自己把人生跟角色典范做比较、还告诚自己不要更像他们时，你就该知道烟雾已悄悄渗入，遮蔽你的视野。与其跟他人比较后决定自己不够好，还不如利用角色典范的例子激励自己，在你的日常生活中实现你推崇的特性。</p>
+<p>以我自己为例，我有个好朋友很接近波士顿马拉松的资格，他能在三个半小时内跑完全程。我尊敬他是个跑者也是伟大的人，但只要我开始把自己跟他和他的结果做比较，我就再次用他人的成就驯化自己，同时在过程中抛弃自己。所以我不但没有如此，反而像庆祝自己的成功般庆祝他的成功。我跑完全程的时间是五小时又五十七分，我为自己能够跑完庆祝。我不比较自己和他跑完的时间，而是自我审视自己完成什么和过程中有多享受。这让我很欣赏自己的才艺，也很享受我有机会做喜爱的事，并且能带着热情继续发展技巧。我向我的朋友和其他许多跑者学习，享受彼此间志同道合的情谊。</p>
+<p>另一个跟角色典范有关的陷阱，出现在你错误地相信单一角色典范或老师能回答所有的问题时。这种情况通常可能发生在灵性道路，特别是你刚开始醒悟、摆脱烟雾的时候。不可否认，根据你先前驯化和依附的程度，或许好像有个角色典范或老师确实能回答你所有的问题，因为你才刚开始找寻你自己的路。但随着觉醒花朵的蓓蕾初次绽放，你很快地意识到，实际上你自己能回答你所有的问题，任何来往的角色典范或老师，都只是出现来引导你反求自身。</p>
+<p>这不表示你遇到困难时不去寻求他人的协助，我们时不时都需要别人的帮助。然而差别在于自我主宰的大师知道，在最深的层次，你需要的一切都已经在你心中。丰盛而非稀少的知觉，让你能受到他人天分和成功的启发。</p>
+<p>身为自我主宰的大师，你正在打造自己的路，创造迈向内心进化的旅程，你很感激从角色典范和老师身上学到的功课，你也受到他们的例子激励，但你没有把自己跟其中的任何人做比较，也没有只想着变成其中的任何一个，因为你完全满意自己是谁。</p>
+<p>最后你了解你在自己的生命经验中是独一无二的，因为除了你，没有别人能从你的知觉认识你的生命。开始觉察你只能控制自己的意志是一种解放，因为这样的认识，让你能享受自己经验和所做的一切，当你理解自己不需要太过努力地变成你认为应该成为的人，第一章开头的托尔特克战士感受到的和平与和谐就会降临，因为你已经相当完美。我本身是生命的体验，不是必须获得的象征或典范。如此一来，内心的争战会一次、一次又一次地平息。成为自我主宰的大师，和平终将大获全胜。</p>
+<p>以下的练习能帮助你实践这章所学。</p>
+<h3 id="随喜"><a class="header" href="#随喜">随喜</a></h3>
+<p>佛教传统有个概念被称为随喜（mudita）或同感喜悦，还是为他人的成就、成果和好运感到喜悦的一种修行。当他人是你的家人或好朋友时，比较容易培养这个德行，然而一旦对象不属于你的小圈圈时，就变得困难许多。</p>
+<p>做这个练习时，想想某个情况是别人得到你自己想要的东西。或许是工作升迁、某个奖项、实质物品等。一旦你在心中想到这个情境和人时，大声重复以下的句子三次。</p>
+<p>「我很感激______得到我自己想要的善。」</p>
+<p>大声说出这句话有什么感觉？如果你跟多数人一样，可能不太容易感到真诚，特别是一开始。然而有意识地在生活中练习随喜，能帮助你用好意和无条件的爱取代猜忌和嫉妒，进一步帮助你看穿稀少性的神话。其他人不是你的竞争者，每个人在每个时刻都能正好得到自己所需，当然你也包括在内。</p>
+<p>再进一步，当你跟地球梦境中的他人来往时，开始觉察你在别人得到自己想要的东西时有什么内在反应。注意你是否感到猜忌、嫉妒或恐惧，利用这个机会来练习随喜。</p>
+<h3 id="角色典范"><a class="header" href="#角色典范">角色典范</a></h3>
+<h4 id="步骤一"><a class="header" href="#步骤一">步骤一</a></h4>
+<p>想想在你生命中出现的许多角色典范，列出你在他们身上看到和崇敬的所有特性。在一张纸上只列出特性，不要写出这些人的名字。你所写的可能是：诚实、慷慨、宽容、技术熟练、平静、洞察力等。列完后再进行第二个步骤。</p>
+<h4 id="步骤二"><a class="header" href="#步骤二">步骤二</a></h4>
+<p>回想我们在第五章讨论过的「镜像」，也就是容易激怒你的人，通常拥有你在自己身上看到但不喜欢的特性。反过来说也应该成立。回头看看你列出的角色典范的特性。现在，在这一连串的特性上方，写下你的名字。其实你拥有全部的特性，否则你根本无法在别人的身上认出它们。或许你没有你的角色典范在某个领域的技巧，但如果你选择朝这方面努力，你有能力和潜力打造出自己的路。</p>
+<h4 id="步骤三"><a class="header" href="#步骤三">步骤三</a></h4>
+<p>知道自己己经拥有你崇敬的人具备的特性后，你认为其他人崇敬你的什么特性呢？你认为别人怎么看你？是否符合你列出的特性，或者并不相同？请让你的灵感引导你前进。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_08.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="postfix_1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_08.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="postfix_1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
